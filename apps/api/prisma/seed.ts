@@ -12,7 +12,6 @@ async function main() {
     create: {
       email: "admin@beepz.com",
       password: hashedPassword,
-      name: "Admin User",
       role: Role.ADMIN,
     },
   });

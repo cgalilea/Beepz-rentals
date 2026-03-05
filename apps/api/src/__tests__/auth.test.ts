@@ -44,7 +44,7 @@ describe("POST /auth/login", () => {
       id: "1",
       email: "admin@beepz.com",
       password: hashed,
-      name: "Admin",
+
       role: "ADMIN",
     });
 
@@ -61,7 +61,7 @@ describe("POST /auth/login", () => {
       id: "1",
       email: "admin@beepz.com",
       password: hashed,
-      name: "Admin",
+
       role: "ADMIN",
     });
 
@@ -88,7 +88,7 @@ describe("GET /auth/me", () => {
       id: "1",
       email: "admin@beepz.com",
       password: hashed,
-      name: "Admin",
+
       role: "ADMIN",
     });
 
