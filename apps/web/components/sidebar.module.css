@@ -1,0 +1,52 @@
+.sidebar {
+  width: 240px;
+  background: var(--color-sidebar);
+  color: var(--color-sidebar-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.logo {
+  padding: 1.25rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.link {
+  display: block;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+  color: var(--color-sidebar-text);
+  transition: background 0.15s;
+}
+
+.link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 600;
+}
+
+.logoutBtn {
+  margin: 1rem 1.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-sidebar-text);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.logoutBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

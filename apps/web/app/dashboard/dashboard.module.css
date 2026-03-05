@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: white;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.headerTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.userBadge {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.content {
+  padding: 2rem;
+  flex: 1;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #64748b;
+}
