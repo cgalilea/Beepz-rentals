@@ -8,7 +8,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/auth-context", () => ({
   useAuth: () => ({
-    user: { id: "1", email: "admin@beepz.com", name: "Admin", role: "ADMIN" },
+    user: { id: "1", email: "admin@beepz.com", role: "ADMIN" },
     logout: vi.fn(),
     loading: false,
   }),
@@ -19,6 +19,8 @@ describe("Sidebar", () => {
     render(<Sidebar />);
     expect(screen.getByText("Beepz Rentals")).toBeInTheDocument();
     expect(screen.getByText("Dashboard")).toBeInTheDocument();
+    expect(screen.getByText("Investors")).toBeInTheDocument();
+    expect(screen.getByText("Vehicles")).toBeInTheDocument();
     expect(screen.getByText("Sign Out")).toBeInTheDocument();
   });
 });

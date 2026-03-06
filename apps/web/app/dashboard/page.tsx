@@ -7,7 +7,7 @@ export default function DashboardPage() {
 
   return (
     <div>
-      <h1>Welcome, {user?.name}</h1>
+      <h1>Welcome, {user?.email}</h1>
       <p style={{ marginTop: "0.5rem", color: "#64748b" }}>
         Beepz Rentals management platform. Select an option from the sidebar.
       </p>

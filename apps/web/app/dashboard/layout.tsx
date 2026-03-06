@@ -26,7 +26,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <main className={styles.main}>
         <header className={styles.header}>
           <h2 className={styles.headerTitle}>Dashboard</h2>
-          <span className={styles.userBadge}>{user.name} ({user.role})</span>
+          <span className={styles.userBadge}>{user.email} ({user.role})</span>
         </header>
         <div className={styles.content}>{children}</div>
       </main>

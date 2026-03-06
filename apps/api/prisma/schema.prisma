@@ -21,3 +21,54 @@ model User {
 
   @@map("users")
 }
+
+enum VehicleStatus {
+  AVAILABLE
+  RENTED
+  MAINTENANCE
+}
+
+enum ProfitParticipantType {
+  BEEPZ
+  INVESTOR
+}
+
+model Investor {
+  id           String              @id @default(uuid())
+  name         String
+  email        String              @unique
+  phone        String
+  createdAt    DateTime            @default(now()) @map("created_at")
+  profitShares VehicleProfitShare[]
+
+  @@map("investors")
+}
+
+model Vehicle {
+  id           String              @id @default(uuid())
+  make         String
+  model        String
+  year         Int
+  licensePlate String              @unique @map("license_plate")
+  vin          String              @unique
+  status       VehicleStatus       @default(AVAILABLE)
+  createdAt    DateTime            @default(now()) @map("created_at")
+  profitShares VehicleProfitShare[]
+
+  @@map("vehicles")
+}
+
+model VehicleProfitShare {
+  id              String                @id @default(uuid())
+  vehicleId       String                @map("vehicle_id")
+  participantType ProfitParticipantType @map("participant_type")
+  investorId      String?               @map("investor_id")
+  percentage      Decimal               @db.Decimal(5, 2)
+  createdAt       DateTime              @default(now()) @map("created_at")
+
+  vehicle  Vehicle   @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  investor Investor? @relation(fields: [investorId], references: [id], onDelete: Cascade)
+
+  @@unique([vehicleId, investorId], name: "unique_vehicle_investor")
+  @@map("vehicle_profit_shares")
+}

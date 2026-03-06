@@ -7,6 +7,8 @@ import styles from "./sidebar.module.css";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard" },
+  { label: "Investors", href: "/dashboard/investors" },
+  { label: "Vehicles", href: "/dashboard/vehicles" },
 ];
 
 export function Sidebar() {
@@ -21,7 +23,7 @@ export function Sidebar() {
           <Link
             key={item.href}
             href={item.href}
-            className={`${styles.link} ${pathname === item.href ? styles.active : ""}`}
+            className={`${styles.link} ${pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href)) ? styles.active : ""}`}
           >
             {item.label}
           </Link>

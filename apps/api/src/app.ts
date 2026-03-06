@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes";
+import investorRoutes from "./routes/investor.routes";
+import vehicleRoutes from "./routes/vehicle.routes";
 
 const app = express();
 
@@ -14,5 +16,7 @@ app.get("/health", (_req, res) => {
 
 // Routes
 app.use("/auth", authRoutes);
+app.use("/investors", investorRoutes);
+app.use("/vehicles", vehicleRoutes);
 
 export default app;
