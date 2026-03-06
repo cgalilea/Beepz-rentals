@@ -27,6 +27,8 @@ class ApiClient {
       throw new Error(body.error || `Request failed: ${res.status}`);
     }
 
+    if (res.status === 204) return undefined as unknown as T;
+
     return res.json();
   }
 

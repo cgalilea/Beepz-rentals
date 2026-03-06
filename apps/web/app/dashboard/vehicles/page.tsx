@@ -27,6 +27,8 @@ export default function VehiclesPage() {
       const [v, i] = await Promise.all([api.listVehicles(), api.listInvestors()]);
       setVehicles(v);
       setInvestors(i);
+    } catch (err: any) {
+      setError(err.message || "Failed to load data");
     } finally {
       setLoading(false);
     }
@@ -117,6 +119,8 @@ export default function VehiclesPage() {
           + Add Vehicle
         </button>
       </div>
+
+      {error && !showForm && <div className={styles.error}>{error}</div>}
 
       {showForm && (
         <form className={styles.form} onSubmit={handleSubmit}>

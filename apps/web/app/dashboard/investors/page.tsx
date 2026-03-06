@@ -16,6 +16,8 @@ export default function InvestorsPage() {
     try {
       const data = await api.listInvestors();
       setInvestors(data);
+    } catch (err: any) {
+      setError(err.message || "Failed to load investors");
     } finally {
       setLoading(false);
     }
@@ -69,6 +71,8 @@ export default function InvestorsPage() {
           + Add Investor
         </button>
       </div>
+
+      {error && !showForm && <div className={styles.error}>{error}</div>}
 
       {showForm && (
         <form className={styles.form} onSubmit={handleSubmit}>
